@@ -1,0 +1,13 @@
+.process{
+    width: 70%;
+    height: 300px;
+    background-color: rgb(204, 145, 111);
+    margin-top: 40px;
+    margin-left: 15%;
+    &_done{
+        width: 60px;
+        height: auto;
+        float: left ;
+        margin-left: 10px;
+    }
+}

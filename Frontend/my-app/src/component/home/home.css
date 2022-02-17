@@ -1,0 +1,29 @@
+.home-page {
+  width: auto;
+  height: 1000px;
+  background-color: #c55c5c;
+  margin-top: 0px;
+}
+
+.home-page_top {
+  width: 80%;
+  background-color: aquamarine;
+  margin: 0px auto;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 20px;
+}
+
+.home-page .atm {
+  background-color: green;
+  width: 40%;
+  height: auto;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+/*# sourceMappingURL=home.css.map */

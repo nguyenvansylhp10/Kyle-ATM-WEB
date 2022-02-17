@@ -1,0 +1,34 @@
+.queue{
+    width: 60%;
+    height: auto;
+    background-color: aquamarine;
+    &_box{
+        width: 90%;
+        margin-top: 25px;
+        height: 80px;
+        background-color: yellow;
+        margin-left: 25px;
+        display: flex;
+        &_img{
+            width: 20%;
+            height: 100%;
+            background-color: rgb(207, 166, 115);
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        &_infor{
+            width: 80%;
+            height: 100%;
+            background-color: rgb(61, 61, 250);
+            &_username{
+                p{
+                    
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+
+}
