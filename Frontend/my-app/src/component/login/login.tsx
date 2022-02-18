@@ -16,8 +16,6 @@ export default function Login() {
   const navigate = useNavigate();
   const handleLogin = async () => {
     alert("Login Success");
-    console.log(Inputname);
-    console.log(Inputpassword);
 
     const res = await getUser({ email: Inputname, password: Inputpassword });
     console.log(res);

@@ -1,11 +1,9 @@
 import React from "react";
 import "./ATM.scss";
-import { postAtm } from "../../../api/atms";
 import { useEffect, useState } from "react";
 import { getATMS } from "../../../api/atms";
 import { useDispatch, useSelector } from "react-redux";
 import { ListAtm } from "../../../redux/atmAction";
-import { RootState } from "../../../interface";
 import { AppState } from "../../../redux/index";
 import { removeAtm } from "../../../api/atms";
 export default function ATM() {
@@ -25,19 +23,18 @@ export default function ATM() {
   }, []);
 
   const handleRemove = async (id: string) => {
-    const res = await removeAtm(id);
+    await removeAtm(id);
     const newstate = state.filter((item: any) => {
       return item.id !== id;
     });
     setstate(newstate);
-    console.log(state);
   };
 
   return (
     <div className="div">
       {Listatm &&
         Listatm.map((item: any, index: number) => (
-          <div className="CayATM">
+          <div className="CayATM" key={index}>
             <div className="CayATM_img">
               <img
                 src="http://hanoimoi.com.vn/Uploads/ngohuong/2015/1/2/ATM.jpg"
