@@ -16,7 +16,6 @@ export const Queue = () => {
     const interval = setInterval(async () => {
       const res = await getATMS();
       dispatch(ListQueue(res.queue));
-
     }, 5000);
   }, []);
 

@@ -4,7 +4,6 @@ import { getATMS } from "../../../api/atms";
 import { useEffect, useState } from "react";
 import { ATM, ATMResponseData } from "../../../interface";
 export default function ProcessClient() {
-  // const [processdClient, setprocessdClient] = useState<Array<ATM>>([])
   const [processdClient, setprocessdClient] = useState<
     Array<{
       clientName: string;
@@ -13,26 +12,12 @@ export default function ProcessClient() {
     }>
   >([]);
 
-
-    
-
-
-  
-
- 
-  
   useEffect(() => {
     const interval = setInterval(async () => {
       const res = await getATMS();
       setprocessdClient(res.processedClient);
     }, 2000);
   }, []);
-
-
-
-
-
-
 
   return (
     <div className="process">
@@ -45,7 +30,6 @@ export default function ProcessClient() {
             <p></p>
           </div>
         ))}
-     
     </div>
   );
 }

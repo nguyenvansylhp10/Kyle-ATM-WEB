@@ -4,18 +4,14 @@ import { Form, Input, Button, Checkbox } from "antd";
 import { Navigate, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { setCurentUser } from "../home/feature/userslice";
-// import {useAppDispatch} from '../app/hooks';
+import { setCurentUser } from "../home/feature/User/userslice";
 
 import { getUser } from "../api/user";
 
-
 import Home from "../home/home";
 export default function Login() {
-
   const [Inputname, setInputname] = useState("");
   const [Inputpassword, setInputpassword] = useState("");
-
 
   const navigate = useNavigate();
   const handleLogin = async () => {
@@ -23,34 +19,24 @@ export default function Login() {
     console.log(Inputname);
     console.log(Inputpassword);
 
-   
-    const res = await getUser({email:Inputname,password:Inputpassword});
-    console.log(res)
-    if(res.PRIVATE_TOKEN){
-      localStorage.setItem('token',res.PRIVATE_TOKEN);
+    const res = await getUser({ email: Inputname, password: Inputpassword });
+    console.log(res);
+    if (res.PRIVATE_TOKEN) {
+      localStorage.setItem("token", res.PRIVATE_TOKEN);
       setCurentUser({
-          id:res.user._id,
-          email:res.user.email
-      })
-      navigate('/home');
-  }
-  else
-   alert(res.message)
- }
-      
+        id: res.user._id,
+        email: res.user.email,
+      });
+      navigate("/home");
+    } else alert(res.message);
+  };
 
-    
-
- 
-    
   function handleregister() {
     alert("This is page Register");
   }
 
   const onFinish = (values: any) => {
     console.log("Success:", values);
-   
-
   };
 
   const onFinishFailed = (errorInfo: any) => {
@@ -122,4 +108,3 @@ export default function Login() {
     </div>
   );
 }
-

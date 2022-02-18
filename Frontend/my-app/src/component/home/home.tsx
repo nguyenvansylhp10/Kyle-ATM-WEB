@@ -2,48 +2,33 @@ import { Queue } from "./feature/Queue/Queue";
 import React, { useEffect } from "react";
 import ATM from "./feature/ATM/ATM";
 import ProcessClient from "./feature/Process/ProcessClient";
-import User from "./feature/User";
+import User from "./feature/User/User";
 import { Form, Input, Button, Checkbox } from "antd";
 import { useState } from "react";
 import { postAtm } from "../api/atms";
 import { Modal } from "antd";
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from "react-redux";
 import "./home.scss";
 import { getATMS } from "../api/atms";
 const Home = () => {
-
   const dispatch = useDispatch();
 
-
- 
- 
-  const [input,setinput]= useState("");
+  const [input, setinput] = useState("");
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = () => {
     setIsModalVisible(true);
-
-     
-
   };
 
-  const handleOk = async() => {
+  const handleOk = async () => {
     setIsModalVisible(false);
-    alert( input)
-      const res = await postAtm(input);
-
-
+    alert(input);
+    const res = await postAtm(input);
   };
-
-
-  
 
   const handleCancel = () => {
     setIsModalVisible(false);
   };
-
-
-
 
   return (
     <div className="home-page">
@@ -81,16 +66,15 @@ const Home = () => {
               value={input}
               onChange={(e) => setinput(e.target.value)}
             />
-          </Form.Item >
+          </Form.Item>
 
-          <Form.Item wrapperCol={{ offset: 3, span: 16 } }></Form.Item>
+          <Form.Item wrapperCol={{ offset: 3, span: 16 }}></Form.Item>
         </Form>
       </Modal>
 
       <div className="home-page_top">
         <div className="atm">
           <ATM />
-        
         </div>
 
         <Queue />

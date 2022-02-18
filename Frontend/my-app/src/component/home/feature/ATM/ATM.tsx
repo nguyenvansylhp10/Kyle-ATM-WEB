@@ -9,17 +9,12 @@ import { RootState } from "../../../interface";
 import { AppState } from "../../../redux/index";
 import { removeAtm } from "../../../api/atms";
 export default function ATM() {
-
   const Listatm = useSelector(
     (Listatm: AppState) => Listatm.counterReducer.atm
   );
   const [state, setstate] = useState(Listatm);
 
   const dispatch = useDispatch();
-
-
-    
-
 
   useEffect(() => {
     const interval = setInterval(async () => {
@@ -29,15 +24,14 @@ export default function ATM() {
     return () => clearInterval(interval);
   }, []);
 
- 
-  const handleRemove = async(id:string) => {
-     const res = await removeAtm(id);
-     const newstate = state.filter((item:any)=>{
-       return item.id !== id
-     })
-     setstate(newstate)
-     console.log(state)
-    }
+  const handleRemove = async (id: string) => {
+    const res = await removeAtm(id);
+    const newstate = state.filter((item: any) => {
+      return item.id !== id;
+    });
+    setstate(newstate);
+    console.log(state);
+  };
 
   return (
     <div className="div">
